@@ -30,7 +30,18 @@
                             </div>
 
                             <div class="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                                <a href="#" class="btn btn-primary py-2">Apply Job</a>
+                                
+                                <a href="{{ url('/view_job/'.$job->id) }}" class="btn btn-primary btn-sm mr-2">View Job</a>
+                                
+
+                                @can('isCandidate')
+                                    @if($job->Application->contains('user_id', Auth::user()->id) )
+                                        <p  class="btn btn-primary btn-sm">Applied</p>
+                                    @else
+                                    <a href="{{ url('/apply/'.$job->id) }}" class="btn btn-primary btn-sm">Apply Job</a>
+                                    @endif
+                                @endcan
+
                             </div>
                         </div>
                     </div><!-- end -->
@@ -45,36 +56,20 @@
                         <h2 class="mb-4">Top Recruitments</h2>
                     </div>
                 </div>
+
+                @foreach($companies as $company)
                 <div class="sidebar-box ftco-animate">
                     <div class="border">
-                        <a href="#" class="company-wrap"><img src="images/company-1.jpg" class="img-fluid"
-                                alt="Colorlib Free Template"></a>
+                        {{-- <a href="#" class="company-wrap"><img src="images/company-1.jpg" class="img-fluid"
+                                alt="Colorlib Free Template"></a> --}}
                         <div class="text p-3">
-                            <h3><a href="#">Google Company</a></h3>
-                            <p><span class="number">500</span> <span>Open position</span></p>
+                            <h3><a href="#">{{ $company->business_name }}</a></h3>
+                            <p><span class="number">{{ count($company->Job) }}</span> <span>Job posted</span></p>
                         </div>
                     </div>
                 </div>
-                <div class="sidebar-box ftco-animate">
-                    <div class="border">
-                        <a href="#" class="company-wrap"><img src="images/company-2.jpg" class="img-fluid"
-                                alt="Colorlib Free Template"></a>
-                        <div class="text p-3">
-                            <h3><a href="#">Facebook Company</a></h3>
-                            <p><span class="number">700</span> <span>Open position</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="sidebar-box ftco-animate">
-                    <div class="border">
-                        <a href="#" class="company-wrap"><img src="images/company-3.jpg" class="img-fluid"
-                                alt="Colorlib Free Template"></a>
-                        <div class="text p-3">
-                            <h3><a href="#">IT Programming INC</a></h3>
-                            <p><span class="number">700</span> <span>Open position</span></p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>

@@ -30,7 +30,11 @@
                         </div>
                         <div class="row">
                             @can('isCandidate')
-                            <a href="{{ url('/apply/'.$job->id) }}" class="btn btn-primary mr-2">Apply Job</a>
+                                @if($job->Application->contains('user_id', Auth::user()->id) )
+                                <p  class="btn btn-primary btn-sm">Applied</p>
+                                @else
+                                <a href="{{ url('/apply/'.$job->id) }}" class="btn btn-primary mr-2">Apply Job</a>
+                                @endif
                             @endcan
                             @can('isCompany')
 

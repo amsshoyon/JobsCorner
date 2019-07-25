@@ -40,9 +40,5 @@ class ApplicationController extends Controller
         
     }
 
-    // Application
-    //=====================================
-    public function store(Request $request){
 
-    }
 }

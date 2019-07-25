@@ -32,9 +32,12 @@ Route::post('/job_store', 'JobController@store')->name('job.store');
 Route::get('/job_edit/{id}', 'JobController@edit')->name('job.edit');
 Route::put('/job_update/{id}', 'JobController@update')->name('job.update');
 Route::delete('/job_delete/{id}', 'JobController@destroy')->name('job.destroy');
+Route::post('/shortlist', 'JobController@shortlist')->name('job.shortlist');
+Route::get('/view_candidates/{id}', 'JobController@SingleCandidates')->name('job.jobCandidates');
 
 
 Route::get('/apply/{id}', 'ApplicationController@apply')->name('job.apply');
+
 
 Route::post('/application', 'ApplicationController@store')->name('job.application');
 

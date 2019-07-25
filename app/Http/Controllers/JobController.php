@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Job;
 use App\User;
+use App\Application;
 use Illuminate\Http\Request;
 use App\Http\Requests\JobRequest;
 
@@ -40,6 +41,43 @@ class JobController extends Controller
         // return($candidates);
         return view('main.pages.members.index')-> with(compact('page_title', 'jobs'));  
         
+    }
+
+    // View single job Candidates
+    //======================================
+    public function SingleCandidates($id){
+        $jobs = Job::find($id);
+        $page_title = $jobs->title;
+
+        // return($candidates);
+        return view('main.pages.members.index')-> with(compact('page_title', 'jobs'));  
+        
+    }
+
+    // Application
+    //=====================================
+    public function shortlist(Request $request){
+
+        $id = $request['application_id']; 
+
+        $update = Application::findOrFail($id);
+
+        if($update->shortlist == 0){
+            $update->shortlist = 1;
+            $status = 'success';
+            $msg = 'Applicant Shortlisted.';
+
+        }else{
+            $update->shortlist = 0;
+            $status = 'success';
+            $msg = 'Applicant removed form shortlist.';
+        }
+
+        $update->save();
+
+        return back()->with($status, $msg); 
+
+        // return ($id);
     }
 
     // Store Job

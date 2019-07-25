@@ -17,6 +17,7 @@ class CreateApplicationsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('job_id');
+            $table->integer('shortlist')->default(0)->nullable();
             $table->timestamps();
         });
     }

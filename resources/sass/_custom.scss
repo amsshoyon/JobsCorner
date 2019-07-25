@@ -18,3 +18,108 @@
 .pre {
     white-space: pre-wrap !important;
 }
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+.file-upload {
+    .image-box {
+        margin: 0 auto;
+        background: #d24d57;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+
+        p {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            left: 0;
+            color: #fff;
+            background: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+
+        }
+    }
+}
+
+input[type='file'] {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 7px;
+}
+
+// Skill Add
+//===============================
+.skill-box {
+    -webkit-font-smoothing: antialiased;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    position: relative;
+
+    .skill-control {
+        border: 0;
+        height: 30px;
+        font-size: 14px;
+        width: 200px;
+        outline: 0;
+        margin: 2px 2px;
+        margin-right: -10px;
+
+    }
+
+    .skill-item {
+        background: #E2EAF2;
+        color: #3e3e3e;
+        padding: 3px 30px 3px 10px;
+        line-height: 25px;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 13px;
+        margin: 2px 3px;
+        float: left;
+        position: relative;
+        margin-left: 0;
+
+        .remove {
+            height: 20px;
+            width: 20px;
+            font-size: 10px;
+            background: grey;
+            color: white;
+            text-align: center;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            display: block;
+            line-height: 20px;
+            cursor: pointer;
+
+            &:hover {
+                background: #E96677;
+                color: white;
+            }
+        }
+    }
+
+}
+
+@keyframes slidedown {
+    0% {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}

@@ -9,10 +9,10 @@ use App\Http\Requests\JobRequest;
 
 class JobController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('Company');
-    // }
+    public function __construct()
+    {
+        $this->middleware('Company');
+    }
 
     // Index view
     //=====================================

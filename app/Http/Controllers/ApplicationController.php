@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use App\User;
+use App\Application;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
@@ -17,9 +18,22 @@ class ApplicationController extends Controller
     public function apply($id){
         $user = Auth::user();
         if(isset($user->Resume) && isset($user->image) && isset($user->skills)){
-            $job_id = $id;
-            $page_title = "Apply Now";
-            return view('main.pages.application.index')-> with(compact('job_id', 'page_title'));  
+
+            $check = Application::where('job_id', $id)->where('user_id', $user->id)->get();
+
+            if(count($check) > 0){
+                return back()->with('error', 'You already applied to this job.'); 
+            }else{
+
+                $store = new Application;
+                $store->user_id = $user->id;
+                $store->job_id = $id;
+    
+                $store->save();
+    
+                return back()->with('success', 'Application Submited. Thank You.'); 
+            }
+
         }else{
             return redirect('/profile')->with('error', 'Profile Incomplete, Update first.');
         }

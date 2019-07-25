@@ -20,13 +20,7 @@ class HomeController extends Controller
         $page_title = "About Us";
         return view('main.pages.about.index')-> with(compact('page_title'));  
     }
-    // Member Page View
-    //====================================
-    public function candidates()
-    {
-        $page_title = "Candidates";
-        return view('main.pages.members.index')-> with(compact('page_title'));  
-    }
+
     // Contact Page View
     //====================================
     public function contact()

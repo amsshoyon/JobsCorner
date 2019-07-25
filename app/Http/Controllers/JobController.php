@@ -30,6 +30,18 @@ class JobController extends Controller
         return view('main.pages.jobs.my_jobs')-> with(compact('page_title', 'jobs'));  
     }
 
+    // View Candidates
+    //======================================
+    public function candidates(){
+        $page_title = "Candidates";
+        $user = Auth::user()->id;
+        $jobs = Job::where('user_id', $user)->get();
+
+        // return($candidates);
+        return view('main.pages.members.index')-> with(compact('page_title', 'jobs'));  
+        
+    }
+
     // Store Job
     //=====================================
     public function store(JobRequest $request){

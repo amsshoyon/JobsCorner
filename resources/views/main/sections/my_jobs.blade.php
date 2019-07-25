@@ -27,7 +27,7 @@
                                     <div class="job-post-item-body d-block d-md-flex">
                                         <div class="mr-3">
                                             <span class="icon-layers"></span> 
-                                            <a href="#"><span> 17</span> Applied </a>
+                                            <a href="{{ url('/view_candidates/'.$job->id) }}"><span> {{ count($job->Application) }}</span> Applied </a>
                                         </div>
                                     </div>
                                 </div>

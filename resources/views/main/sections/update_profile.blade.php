@@ -39,10 +39,27 @@
                             <div class="col-md-12">
 
                                 <div class="form-group row">
+                                    <label for="firstname" class="col-4 col-form-label">First Name</label>
+                                    <div class="col-8">
+                                        <input type="text" id="firstname" name="firstname" class="form-control here"
+                                            required="required" placeholder="" value="{{ $user->firstname }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="lastname" class="col-4 col-form-label">Last Name</label>
+                                    <div class="col-8">
+                                        <input type="text" id="lastname" name="lastname" class="form-control here"
+                                            required="required" placeholder="" value="{{ $user->lastname }}">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
                                     <label for="resume" class="col-4 col-form-label">Upload Resume*</label>
                                     <div class="col-8">
                                         <input type="file" id="resume" name="resume" class="form-control here"
-                                            required="required" accept=".doc, .docx, .pdf">
+                                         accept=".doc, .docx, .pdf">
                                     </div>
                                 </div>
 
@@ -50,7 +67,8 @@
                                     <label for="skills" class="col-4 col-form-label">Add Skills*</label>
                                     <div class="col-8">
                                         <input type="text" id="skills" name="skills" class="form-control here"
-                                            required="required" placeholder="php, laravel, jQuery, ...." value="{{ $user->skills }}">
+                                            required="required" placeholder="php, laravel, jQuery, ...."
+                                            value="{{ $user->skills }}">
                                     </div>
                                 </div>
 

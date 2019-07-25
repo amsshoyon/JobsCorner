@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use File;
+use Auth;
 use App\User;
 use App\Resume;
 use Illuminate\Http\Request;
@@ -12,8 +13,11 @@ class UserController extends Controller
     // Index View
     //=================================
     public function index(){
-        
+        $user = Auth::user();
+        $page_title = "Update Profile";
+        return view('main.pages.members.update')-> with(compact('user', 'page_title'));  
     }
+
     // Update Profile
     //=================================
     public function update(Request $request, $id){
@@ -43,7 +47,9 @@ class UserController extends Controller
                     unlink(public_path('/resumes/'.$resume->resume));
                 }
 
-                $resume_name = time().'.'.$request->resume->getClientOriginalExtension();
+                $resume_name = $request->file('resume')->getClientOriginalName();
+                $resume_name = preg_replace('/\s+/', ' ', $resume_name);
+                $resume_name = preg_replace('/\s+/', '_', $resume_name);
                 $path= $request->file('resume')->move(public_path('/resume'), $resume_name);
 
                 $resume->resume = $resume_name;
@@ -52,7 +58,9 @@ class UserController extends Controller
             }else{
                 $store = new Resume;
 
-                $resume_name = time().'.'.$request->resume->getClientOriginalExtension();
+                $resume_name = $request->file('resume')->getClientOriginalName();
+                $resume_name = preg_replace('/\s+/', ' ', $resume_name);
+                $resume_name = preg_replace('/\s+/', '_', $resume_name);
                 $path= $request->file('resume')->move(public_path('/resume'), $resume_name);
 
                 $store->user_id = $id;
@@ -64,6 +72,8 @@ class UserController extends Controller
         
 
         $update->skills = $request['skills'];
+        $update->firstname = $request['firstname'];
+        $update->lastname = $request['lastname'];
 
         $update->save();             
         return back()->with('success', 'Profile Updated');

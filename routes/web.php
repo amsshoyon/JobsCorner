@@ -36,5 +36,5 @@ Route::get('/apply/{id}', 'ApplicationController@apply')->name('job.apply');
 
 Route::post('/application', 'ApplicationController@store')->name('job.application');
 
-Route::get('/profile', 'UserController@update')->name('user.update');
+Route::get('/profile', 'UserController@index')->name('user.index');
 Route::post('/update_profile/{id}', 'UserController@update')->name('user.update');

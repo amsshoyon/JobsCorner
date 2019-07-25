@@ -16,13 +16,12 @@ class ApplicationController extends Controller
     // ====================================
     public function apply($id){
         $user = Auth::user();
-        if($user->Resume && $user->image && $user->Skill){
+        if(isset($user->Resume) && isset($user->image) && isset($user->skills)){
             $job_id = $id;
             $page_title = "Apply Now";
             return view('main.pages.application.index')-> with(compact('job_id', 'page_title'));  
         }else{
-            $page_title = "Update Profile";
-            return view('main.pages.members.update')-> with(compact('user', 'page_title'));  
+            return redirect('/profile');
         }
         
     }

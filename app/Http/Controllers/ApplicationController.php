@@ -21,7 +21,7 @@ class ApplicationController extends Controller
             $page_title = "Apply Now";
             return view('main.pages.application.index')-> with(compact('job_id', 'page_title'));  
         }else{
-            return redirect('/profile');
+            return redirect('/profile')->with('error', 'Profile Incomplete, Update first.');
         }
         
     }

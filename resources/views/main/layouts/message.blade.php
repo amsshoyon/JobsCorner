@@ -18,6 +18,23 @@
 @endif
 
 {{-- ----------------------- --}}
+{{-- Error Flash --}}
+{{-- ----------------------- --}}
+@if(session('error'))
+    <script>
+        $.confirm({
+            title: 'Ops!',
+            content: '{{session('error')}}',
+            type: 'red',
+            typeAnimated: true,
+            buttons: {
+                close: function () {}
+            }
+        });
+
+    </script>
+@endif
+{{-- ----------------------- --}}
 {{-- Error Message --}}
 {{-- ----------------------- --}}
 @php

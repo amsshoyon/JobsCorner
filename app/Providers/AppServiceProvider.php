@@ -30,7 +30,9 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function($view){
             $view->with('alljobs', Job::get());
+            $view->with('members', User::get());
             $view->with('companies', User::where('user_type', 'company')->get());
+            $view->with('allcandidates', User::where('user_type', 'candidate')->get());
         });
     }
 }

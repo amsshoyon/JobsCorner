@@ -10,7 +10,7 @@ data-stellar-background-ratio="0.5">
                             <div class="icon">
                                 <span class="flaticon-employee"></span>
                             </div>
-                            <strong class="number" data-number="435000">0</strong>
+                            <strong class="number" data-number="{{ count($alljobs) }}">0</strong>
                             <span>Jobs</span>
                         </div>
                     </div>
@@ -21,7 +21,7 @@ data-stellar-background-ratio="0.5">
                             <div class="icon">
                                 <span class="flaticon-collaboration"></span>
                             </div>
-                            <strong class="number" data-number="40000">0</strong>
+                            <strong class="number" data-number="{{ count($members) -1 }}">0</strong>
                             <span>Members</span>
                         </div>
                     </div>
@@ -32,7 +32,7 @@ data-stellar-background-ratio="0.5">
                             <div class="icon">
                                 <span class="flaticon-resume"></span>
                             </div>
-                            <strong class="number" data-number="30000">0</strong>
+                            <strong class="number" data-number="{{ count($allcandidates) }}">0</strong>
                             <span>Resume</span>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ data-stellar-background-ratio="0.5">
                             <div class="icon">
                                 <span class="flaticon-promotions"></span>
                             </div>
-                            <strong class="number" data-number="10500">0</strong>
+                            <strong class="number" data-number="{{ count($companies) }}">0</strong>
                             <span>Company</span>
                         </div>
                     </div>

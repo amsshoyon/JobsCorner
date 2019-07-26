@@ -36,7 +36,7 @@
                         @auth
                             <li>{{ Auth::user()->firstname }}</li>
                             <li><a href="{{ url('/profile') }}">My Profile</a></li>
-                            <li><a href="{{ url('/settings') }}">Settings</a></li>
+                            {{-- <li><a href="{{ url('/settings') }}">Settings</a></li> --}}
                             <li>
                                 <a href="#" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

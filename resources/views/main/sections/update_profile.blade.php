@@ -30,9 +30,11 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 d-flex justify-content-between align-items-center">
                                 <h4>Your Profile</h4>
-                                <hr>
+                                @if(isset($user->Resume->resume))
+                                <p><a href="{{ asset('/resume/'.$user->Resume->resume) }}">Download Resume</a></p>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
@@ -54,9 +56,20 @@
                                     </div>
                                 </div>
 
+                                @can('isCompany')
+                                <div class="form-group row">
+                                    <label for="business_name" class="col-4 col-form-label">Business Name</label>
+                                    <div class="col-8">
+                                        <input type="text" id="business_name" name="business_name" class="form-control here"
+                                            required="required" placeholder="" value="{{ $user->business_name }}">
+                                    </div>
+                                </div>
+                                @endcan
 
+                                @can('isCandidate')
                                 <div class="form-group row">
                                     <label for="resume" class="col-4 col-form-label">Upload Resume*</label>
+                                    
                                     <div class="col-8">
                                         <input type="file" id="resume" name="resume" class="form-control here"
                                          accept=".doc, .docx, .pdf">
@@ -71,6 +84,7 @@
                                             value="{{ $user->skills }}">
                                     </div>
                                 </div>
+                                @endcan
 
                                 <div class="form-group row" style="margin-top: 50px;">
                                     <div class="col-md-12 d-flex justify-content-end">

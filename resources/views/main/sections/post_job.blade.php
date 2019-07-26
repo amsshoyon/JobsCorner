@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-12 col-lg-8 mb-5">
+            <div class="col-md-12 col-lg-8 mb-5 m-auto">
                 @if(isset($job))
                 {!! Form::model($job, ['method' => 'PUT', 'action' => ['JobController@update',$job->id]]) !!}
                 @else
@@ -53,7 +53,7 @@
                 {!! Form::close() !!}
             </div>
 
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
                 <div class="p-4 mb-3 bg-white">
                     <h3 class="h5 text-black mb-3">Contact Info</h3>
                     <p class="mb-0 font-weight-bold">Address</p>
@@ -75,7 +75,7 @@
                         architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur</p>
                     <p><a href="#" class="btn btn-primary  py-2 px-4">Learn More</a></p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

@@ -12,7 +12,7 @@
                     {{-- ---------------------------- --}}
                     {{-- jobs --}}
                     {{-- ---------------------------- --}}
-                    @foreach($alljobs as $job)
+                    @foreach($alljobs->take(15) as $job)
                     <div class="col-md-12 ftco-animate">
                         <div class="job-post-item py-4 d-block d-lg-flex align-items-center">
                             <div class="one-third mb-4 mb-md-0">
@@ -40,7 +40,7 @@
                                     @else
                                     <a href="{{ url('/apply/'.$job->id) }}" class="btn btn-primary btn-sm">Apply Job</a>
                                     @endif
-                                @endcan
+                                @endcan 
 
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                @foreach($companies as $company)
+                @foreach($companies->take(10) as $company)
                 <div class="sidebar-box ftco-animate">
                     <div class="border">
                         {{-- <a href="#" class="company-wrap"><img src="images/company-1.jpg" class="img-fluid"

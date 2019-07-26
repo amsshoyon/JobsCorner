@@ -14,7 +14,7 @@
                     <div class="row">
                         {{-- ---------------------------- --}}
                         {{-- jobs --}}
-                        {{-- ---------------------------- --}}\
+                        {{-- ---------------------------- --}}
                         @foreach($jobs as $job)
                         <div class="col-md-12 ftco-animate">
                             <div class="job-post-item py-4 d-block d-lg-flex align-items-center">

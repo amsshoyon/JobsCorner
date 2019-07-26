@@ -37,7 +37,7 @@
                                 @endif
                             @endcan
                             @can('isCompany')
-
+                            @if($job->user_id == Auth::user()->id)
                                 {!!Form::open(['route' => ['job.destroy', $job->id], 'method' =>
                                 'DELETE'])!!}
 
@@ -49,7 +49,7 @@
                                 </button>
 
                                 {!!Form::close()!!}
-                            
+                            @endif
                             @endcan
                         </div>
                     </div>

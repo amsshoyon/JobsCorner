@@ -46,11 +46,11 @@ class JobController extends Controller
     // View single job Candidates
     //======================================
     public function SingleCandidates($id){
-        $jobs = Job::find($id);
-        $page_title = $jobs->title;
+        $job = Job::find($id);
+        $page_title = $job->title;
 
         // return($candidates);
-        return view('main.pages.members.index')-> with(compact('page_title', 'jobs'));  
+        return view('main.pages.members.index')-> with(compact('page_title', 'job'));  
         
     }
 
